@@ -50,11 +50,11 @@ sudo dnf install -y ~/rpmbuild/RPMS/noarch/chat-app-1.0-1.el8.noarch.rpm
 chat-server [--port PORT] [--host IP]
 ```
 
-### Запуск клиента
+#### Запуск клиента
 ```bash
 chat-client [--port PORT] [--host IP]
 ```
 
---port - указать порт (по умолчанию: 5555)
+`--port` - указать порт (по умолчанию: 5555)
 
---host - указать IP для прослушивания (по умолчанию: localhost)
+`--host` - указать IP для прослушивания (по умолчанию: localhost)`
