@@ -25,6 +25,12 @@ sudo docker run -it --rm -v ~/rpmbuild:/rpmbuild oraclelinux:8.10 /bin/bash -c "
     rpmbuild -ba --define '_topdir /rpmbuild' chat-app.spec
 "
 ```
+```bash
+sudo apt-get install alien
+cd ~/rpmbuild/RPMS/noarch/
+sudo alien --to-deb chat-app-1.0-1.el8.noarch.rpm
+sudo dpkg -i chat-app_1.0-2_all.deb
+```
 
 ### Red Hat + Red Hat Based distros
 
@@ -36,3 +42,19 @@ rpmbuild -ba --define '_topdir /home/yourusername/rpmbuild' chat-app.spec
 ```bash
 sudo dnf install -y ~/rpmbuild/RPMS/noarch/chat-app-1.0-1.el8.noarch.rpm
 ```
+
+### Использование 
+
+#### Запуск сервера
+```bash
+chat-server [--port PORT] [--host IP]
+```
+
+### Запуск клиента
+```bash
+chat-client [--port PORT] [--host IP]
+```
+
+--port - указать порт (по умолчанию: 5555)
+
+--host - указать IP для прослушивания (по умолчанию: localhost)
