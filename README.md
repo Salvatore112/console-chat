@@ -1,3 +1,10 @@
+## Консольный чат
+[![CI](https://github.com/Salvatore112/BaseConfigGen/actions/workflows/ci.yml/badge.svg)](https://github.com/Salvatore112/BaseConfigGen/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Многопользовательский консольный чат на Python с клиент-серверной архитектурой. Поддерживает одновременное подключение нескольких пользователей и обмен сообщениями в реальном времени.
+Простой многопользовательский консольный чат на Python с клиент-серверной архитектурой. Поддерживает одновременное подключение нескольких пользователей и обмен сообщениями в реальном времени.
+
 ## Библиотеки
 
 В ходе разработки приложения были использованы следующие Python-библиотеки:
