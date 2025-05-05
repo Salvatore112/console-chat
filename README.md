@@ -71,4 +71,50 @@ chat-client [--port PORT] [--host IP]
 
 `--port` - указать порт (по умолчанию: 5555)
 
-`--host` - указать IP для прослушивания (по умолчанию: localhost)`
+`--host` - указать IP для прослушивания (по умолчанию: localhost)
+
+### Пример использования
+
+#### Сервер
+```bash
+sudo chat-server
+```
+```plaintext
+2025-05-05 21:42:59,581 - INFO - Server started on 0.0.0.0:5555
+2025-05-05 21:43:19,278 - INFO - New connection: Bob from ('127.0.0.1', 42220)
+2025-05-05 21:43:33,383 - INFO - New connection: Alice from ('127.0.0.1', 55058)
+2025-05-05 21:43:39,728 - INFO - Message from Bob: Hello
+2025-05-05 21:43:39,728 - INFO - Message from Bob delivered to all
+2025-05-05 21:43:51,350 - INFO - Message from Alice: Hi
+2025-05-05 21:43:51,351 - INFO - Message from Alice delivered to all
+```
+
+#### Клиент №1 (Bob)
+```bash
+sudo chat-client
+```
+```plaintext
+Введите имя пользователя: Bob
+Подключено к серверу. OK: Вы подключены к чату
+Hello
+
+[Подтверждение] Сообщение доставлено всем
+[Bob] > 
+[Сообщение] Alice: Hi
+[Bob] > 
+```
+
+#### Клиент №2 (Alice)
+```bash
+sudo chat-client
+```
+```plaintext
+Введите имя пользователя: Alice
+Подключено к серверу. OK: Вы подключены к чату
+
+[Сообщение] Bob: Hello
+[Alice] > Hi
+
+[Подтверждение] Сообщение доставлено всем
+[Alice] > 
+```
