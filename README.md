@@ -1,15 +1,38 @@
 ## Установка
+
 ```bash
 git clone https://github.com/Salvatore112/console-chat.git
 cd console-chat.git
 ```
 
 ```bash
-mkdir -p ~/chat-app-1.0 && \
-cp -r src SPECS ~/chat-app-1.0/ && \
-cd ~ && \
-tar -czvf chat-app-1.0.tar.gz chat-app-1.0/ && \
-mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS} && \
-mv chat-app-1.0.tar.gz ~/rpmbuild/SOURCES/ && \
-mv ~/chat-app-1.0/SPECS/* ~/rpmbuild/SPECS/
+mkdir -p ~/chat-app-1.0/src
+cp -r src/* ~/chat-app-1.0/src/
+cp chat-app.spec ~/chat-app-1.0/
+cd ~
+tar -czvf chat-app-1.0.tar.gz chat-app-1.0/
+mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+mv chat-app-1.0.tar.gz ~/rpmbuild/SOURCES/
+cp ~/chat-app-1.0/chat-app.spec ~/rpmbuild/SPECS/
+```
+
+### DEBIAN + DEBIAN Based distros
+
+```bash
+sudo docker run -it --rm -v ~/rpmbuild:/rpmbuild oraclelinux:8.10 /bin/bash -c "
+    dnf install -y rpm-build python3 &&
+    cd /rpmbuild/SPECS &&
+    rpmbuild -ba --define '_topdir /rpmbuild' chat-app.spec
+"
+```
+
+### Red Hat + Red Hat Based distros
+
+```bash
+sudo dnf install -y rpm-build python3
+cd ~/rpmbuild/SPECS
+rpmbuild -ba --define '_topdir /home/yourusername/rpmbuild' chat-app.spec
+```
+```bash
+sudo dnf install -y ~/rpmbuild/RPMS/noarch/chat-app-1.0-1.el8.noarch.rpm
 ```
