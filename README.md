@@ -1,3 +1,17 @@
+## Библиотеки
+
+В ходе разработки приложения были использованы следующие Python-библиотеки:
+
+- socket -- для сетевого взаимодействия
+
+- threading -- для многопоточности
+
+- argparse -- для обработки аргументов командной строки
+
+- logging -- для логирования работы приложения
+
+Все они входят в стандартную библиотеку Python
+
 ## Установка
 
 ```bash
@@ -43,14 +57,14 @@ rpmbuild -ba --define '_topdir /home/yourusername/rpmbuild' chat-app.spec
 sudo dnf install -y ~/rpmbuild/RPMS/noarch/chat-app-1.0-1.el8.noarch.rpm
 ```
 
-### Использование 
+## Использование 
 
-#### Запуск сервера
+### Запуск сервера
 ```bash
 chat-server [--port PORT] [--host IP]
 ```
 
-#### Запуск клиента
+### Запуск клиента
 ```bash
 chat-client [--port PORT] [--host IP]
 ```
